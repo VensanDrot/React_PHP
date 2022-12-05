@@ -21,7 +21,6 @@ margin-bottom: 1rem;
 .btn {
 position: relative;
 width: max-content;
-display: inline-block;
 font-weight: 600;
 color: black;
 padding: 0.45rem 0.9rem;
@@ -29,16 +28,24 @@ border-radius: 0.2rem;
 cursor: pointer;
 border: 3px solid  black;
 transition: var(--transition);
-
-   border: solid 1px black;
-
-    box-shadow: 1px 0px 0px black,0px 1px 0px black,
-    2px 1px 0px black,1px 2px 0px black,
-    3px 2px 0px black,2px 3px 0px black,
-    4px 3px 0px black,3px 4px 0px black;
-   
+border: solid 1px black;
+box-shadow: 1px 0px 0px black,0px 1px 0px black,
+2px 1px 0px black,1px 2px 0px black,
+3px 2px 0px black,2px 3px 0px black,
+4px 3px 0px black,3px 4px 0px black;
 }
 
+.btn:hover{
+  transition: margin-top 0.3s ease,
+    margin-left 0.3s ease,
+    box-shadow 0.3s ease;
+
+    margin-left:9px;
+    margin-top:9px;
+
+    box-shadow: 0px 0px 0px #1976D2
+
+}
  
  
 
