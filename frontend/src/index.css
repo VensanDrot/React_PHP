@@ -1,19 +1,14 @@
+*{
+    text-decoration: none;
+}
+
 :root {
---white: #fff;
---deep-blue: #22577E;
---grey: #FAF7F0;
---light-blue: #CDFCF6;
---purple: #BCCEF8;
---dark-purple: #98A8F8;
 --transition: 0.5s;
 --container-width-lg: 75%;
 --container-width-md: 86%;
 --container-width-sm: 90%;
 }
 
-body {
-    background-color: var(--grey) !important;
-}
 
 .container {
 width: var(--container-width-lg);
@@ -24,116 +19,30 @@ margin-bottom: 1rem;
 }
 
 .btn {
+position: relative;
 width: max-content;
 display: inline-block;
 font-weight: 600;
-color: var(--dark-purple);
+color: black;
 padding: 0.45rem 0.9rem;
-border-radius: 0.4rem;
+border-radius: 0.2rem;
 cursor: pointer;
-border: 3px solid var(--dark-purple);
+border: 3px solid  black;
 transition: var(--transition);
+
+   border: solid 1px black;
+
+    box-shadow: 1px 0px 0px black,0px 1px 0px black,
+    2px 1px 0px black,1px 2px 0px black,
+    3px 2px 0px black,2px 3px 0px black,
+    4px 3px 0px black,3px 4px 0px black;
+   
 }
 
-.btn:hover {
-background-color: var(--dark-purple);
-color: var(--white);
-border-color: transparent;
-}
+ 
+ 
 
-.btn-primary {
-color: var(--dark-purple);
-background-color: var(--bk1);
-}
-
-.btn-primary:hover {
-background-color: var(--dark-purple);
-}
-
-
-
-/* ================== MEDIA QUERIES (MEDIUM DEVICES) ============= */
-
-@media screen and (max-width: 1024px) {
-.container {
-    width: var(--container-width-md);
-}
-}
-
-
-/* ================== MEDIA QUERIES (SMALL DEVICES) ============= */
-
-@media screen and (max-width: 600px) {
-.container {
-    width: var(--container-width-sm);
-}
-.welcome {
-    margin-top: 1.2rem;
-}
-body {
-    background-size: fill;
-}
-}
-
-
-/* ================== MEDIA QUERIES (Extra SMALL DEVICES) ============= */
-
-@media screen and (max-width: 450px) {
-.container {
-    width: var(--container-width-sm);
-}
-}:root {
---white: #fff;
---deep-blue: #22577E;
---grey: #FAF7F0;
---light-blue: #CDFCF6;
---purple: #BCCEF8;
---dark-purple: #98A8F8;
---transition: 0.5s;
---container-width-lg: 75%;
---container-width-md: 86%;
---container-width-sm: 90%;
-}
-
-body {
-    background-color: var(--grey) !important;
-}
-
-.container {
-width: var(--container-width-lg);
-height: auto;
-margin: 0 auto;
-overflow: hidden;
-margin-bottom: 1rem;
-}
-
-.btn {
-width: max-content;
-display: inline-block;
-font-weight: 600;
-color: var(--dark-purple);
-padding: 0.45rem 0.9rem;
-border-radius: 0.4rem;
-cursor: pointer;
-border: 3px solid var(--dark-purple);
-transition: var(--transition);
-}
-
-.btn:hover {
-background-color: var(--dark-purple);
-color: var(--white);
-border-color: transparent;
-}
-
-.btn-primary {
-color: var(--dark-purple);
-background-color: var(--bk1);
-}
-
-.btn-primary:hover {
-background-color: var(--dark-purple);
-}
-
+ 
 
 
 /* ================== MEDIA QUERIES (MEDIUM DEVICES) ============= */

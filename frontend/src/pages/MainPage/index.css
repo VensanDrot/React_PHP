@@ -1,0 +1,5 @@
+.top_part {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+}

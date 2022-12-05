@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
 import "./index.css";
 import MainPage from "./pages/MainPage";
+import CreatePage from "./pages/CreatePage";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="/" element={<MainPage />} />
+            <Route path="/add-product" element={<CreatePage />} />
           </Routes>
         </div>
       </Router>

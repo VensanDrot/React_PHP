@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CardList from "../../components/CardList";
+import "./index.css";
 
 const MainPage = () => {
   const data = [
@@ -37,9 +39,19 @@ const MainPage = () => {
     },
   ];
 
+  const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.currentTarget.id);
+  };
+
   return (
     <div>
-      <CardList data={data} />
+      <div className="top_part">
+        <Link className="btn" to="/add-product">
+          ADD
+        </Link>
+        <button className="btn">MASS DELETE</button>
+      </div>
+      <CardList data={data} handler={handler} />
     </div>
   );
 };

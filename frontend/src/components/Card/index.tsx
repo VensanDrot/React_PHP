@@ -8,12 +8,10 @@ interface IProps {
   Price: string;
   PSAttribute: string;
   PType: string;
+  handler: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Card: FC<IProps> = ({ ID, SKU, Name, Price, PSAttribute, PType }) => {
-  const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.currentTarget.id);
-  };
+const Card: FC<IProps> = ({ ID, SKU, Name, Price, PSAttribute, PType, handler }) => {
   return (
     <div className="card_container">
       <input id={ID.toString()} onChange={handler} className="delete_checkbox" type="checkbox" />
