@@ -2,6 +2,11 @@
     text-decoration: none;
 }
 
+a, h1 {
+  color: inherit;
+  text-decoration: none;
+}
+
 :root {
 --transition: 0.5s;
 --container-width-lg: 75%;
@@ -22,6 +27,7 @@ margin-bottom: 1rem;
 position: relative;
 width: max-content;
 font-weight: 600;
+height: 34px;
 color: black;
 padding: 0.45rem 0.9rem;
 border-radius: 0.2rem;

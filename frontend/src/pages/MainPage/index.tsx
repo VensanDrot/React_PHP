@@ -37,6 +37,22 @@ const MainPage = () => {
       PSAttribute: "128mb",
       PType: "disk",
     },
+    {
+      ID: 1332131223,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "128mb",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
   ];
 
   const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,12 +62,18 @@ const MainPage = () => {
   return (
     <div>
       <div className="top_part">
-        <Link className="btn" to="/add-product">
-          ADD
-        </Link>
-        <button className="btn">MASS DELETE</button>
+        <h1>Product List</h1>
+        <div className="btn_holder">
+          <button className="btn">
+            <Link to="/add-product">ADD</Link>
+          </button>
+          <button className="btn">MASS DELETE</button>
+        </div>
       </div>
       <CardList data={data} handler={handler} />
+      <div className="bottom">
+        <h1>Scandiweb Test Assignment</h1>
+      </div>
     </div>
   );
 };

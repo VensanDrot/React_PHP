@@ -1,5 +1,24 @@
 .top_part {
     display: flex;
-    gap: 1.2rem;
-    margin-bottom: 1rem;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px;
+    border-bottom:3px solid black ;
+}
+
+.bottom {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    border-top: 3px solid black;
+}
+
+.btn_holder {
+    width: 20%;
+    position: absolute;
+    right: 1.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 50px;
 }
