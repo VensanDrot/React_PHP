@@ -1,0 +1,6 @@
+#product_form {
+    display: grid;
+    grid-template-columns: 7% 30%;
+    gap: 1rem;
+    place-items: left;
+}

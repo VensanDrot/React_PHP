@@ -64,9 +64,9 @@ const MainPage = () => {
       <div className="top_part">
         <h1>Product List</h1>
         <div className="btn_holder">
-          <button className="btn">
-            <Link to="/add-product">ADD</Link>
-          </button>
+          <Link to="/add-product">
+            <button className="btn">ADD</button>
+          </Link>
           <button className="btn">MASS DELETE</button>
         </div>
       </div>
