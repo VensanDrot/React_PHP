@@ -1,6 +1,8 @@
-.product_form {
+.inputs {
     display: grid;
     grid-template-columns: 7% 30%;
     gap: 1rem;
     place-items: left;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
