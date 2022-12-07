@@ -67,7 +67,9 @@ const MainPage = () => {
           <Link to="/add-product">
             <button className="btn">ADD</button>
           </Link>
-          <button className="btn">MASS DELETE</button>
+          <button className="btn" id="delete-product-btn">
+            MASS DELETE
+          </button>
         </div>
       </div>
       <CardList data={data} handler={handler} />
