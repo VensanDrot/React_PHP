@@ -157,7 +157,7 @@ const CreatePage = () => {
     num = specialChecker(sku, setSkuError, num);
     num = specialChecker(name, setNameError, num);
     num = specialNumberChecker(price, setPriceError, num);
-    console.log(type);
+
     if (type === "") {
       num++;
       setTypeError("Please, submit required data");

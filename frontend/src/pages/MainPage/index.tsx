@@ -4,6 +4,7 @@ import CardList from "../../components/CardList";
 import "./index.css";
 
 const MainPage = () => {
+  let arr: Array<string> = [];
   const data = [
     {
       ID: 123,
@@ -56,7 +57,12 @@ const MainPage = () => {
   ];
 
   const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.currentTarget.id);
+    if (arr.includes(event.currentTarget.id)) {
+      arr.splice(arr.indexOf(event.currentTarget.id), 1);
+    } else {
+      arr.push(event.currentTarget.id);
+    }
+    console.log(arr, " ", arr.length);
   };
 
   return (
