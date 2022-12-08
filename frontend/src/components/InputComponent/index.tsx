@@ -9,6 +9,7 @@ interface IProps {
     variable: string;
     variableSetter: React.Dispatch<SetStateAction<string>>;
     errorVariable: string | undefined;
+    errorVariableSetter: React.Dispatch<SetStateAction<string>>;
   }[];
   variableHandler: (e: React.ChangeEvent<HTMLInputElement>, setter: React.Dispatch<SetStateAction<string>>) => void;
 }
@@ -19,11 +20,12 @@ const InputComponent: FC<IProps> = ({ data, variableHandler }) => {
       {data.map((e) => {
         return (
           <div key={e.id}>
-            <label>{e.errorVariable}</label>
+            <label className="error">{e.errorVariable}</label>
 
             <div className="inputs">
               <label>{e.title}</label>
               <input
+                min="0"
                 value={e.variable}
                 onChange={(ev) => variableHandler(ev, e.variableSetter)}
                 type={e.input}

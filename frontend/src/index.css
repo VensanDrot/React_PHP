@@ -23,6 +23,10 @@ overflow: hidden;
 margin-bottom: 1rem;
 }
 
+.error{ 
+    color: red;
+}
+
 .btn {
 position: relative;
 width: max-content;

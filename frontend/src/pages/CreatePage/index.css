@@ -1,6 +1,7 @@
 .product_form {
     display: grid;
     grid-template-columns: 7% 30%;
+    margin: 1.2rem 0;
     gap: 1rem;
     place-items: left;
 }
