@@ -62,7 +62,6 @@ const MainPage = () => {
     } else {
       arr.push(event.currentTarget.id);
     }
-    console.log(arr, " ", arr.length);
   };
 
   return (
