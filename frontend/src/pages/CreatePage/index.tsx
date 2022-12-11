@@ -1,7 +1,6 @@
 import React, { SetStateAction, useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
-import "../MainPage/index.css";
 import InputComponent from "../../components/InputComponent";
 import { InputType } from "zlib";
 
@@ -217,10 +216,6 @@ const CreatePage = () => {
         </div>
         {changeHandler()}
       </form>
-
-      <div className="bottom">
-        <h1>Scandiweb Test Assignment</h1>
-      </div>
     </div>
   );
 };

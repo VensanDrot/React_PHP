@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
 import MainPage from "./pages/MainPage";
 import CreatePage from "./pages/CreatePage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             <Route path="/" element={<MainPage />} />
             <Route path="/add-product" element={<CreatePage />} />
           </Routes>
+          <Footer />
         </div>
       </Router>
     </>

@@ -14,7 +14,7 @@ interface IProps {
 const Card: FC<IProps> = ({ ID, SKU, Name, Price, PSAttribute, PType, handler }) => {
   return (
     <div className="card_container">
-      <input id={ID.toString()} onChange={handler} className="delete_checkbox" type="checkbox" />
+      <input id={ID.toString()} onChange={handler} className="delete-checkbox" type="checkbox" />
       <p>{SKU}</p>
       <p>{Name}</p>
       <p>${Price}</p>

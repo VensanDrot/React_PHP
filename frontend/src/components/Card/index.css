@@ -1,4 +1,4 @@
-.card_container{
+.card_container {
     padding: 5px;
     width: 230px;
     height: 170px;
@@ -9,7 +9,7 @@
     position: relative;
 }
 
-.delete_checkbox{
+.delete-checkbox {
     height: 15px;
     width: 15px;
     position: absolute;

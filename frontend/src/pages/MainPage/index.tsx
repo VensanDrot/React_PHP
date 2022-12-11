@@ -54,6 +54,118 @@ const MainPage = () => {
       PSAttribute: "1x1x1",
       PType: "disk",
     },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
+    {
+      ID: 1332123,
+      SKU: "1fr-321-dsa",
+      Name: "Chair",
+      Price: "321",
+      PSAttribute: "1x1x1",
+      PType: "disk",
+    },
   ];
 
   const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,9 +190,6 @@ const MainPage = () => {
         </div>
       </div>
       <CardList data={data} handler={handler} />
-      <div className="bottom">
-        <h1>Scandiweb Test Assignment</h1>
-      </div>
     </div>
   );
 };

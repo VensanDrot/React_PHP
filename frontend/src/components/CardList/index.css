@@ -1,6 +1,50 @@
-.cardlist_container{ 
+.cardlist_container {
     display: grid;
+    height: 80vh;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1.2rem;
     place-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #bdbaba;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: black;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: black;
+}
+
+@media screen and (max-width: 1024px) {
+    .cardlist_container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* ================== MEDIA QUERIES (SMALL DEVICES) ============= */
+
+@media screen and (max-width: 600px) {
+    .cardlist_container {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
 }

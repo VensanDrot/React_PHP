@@ -4,18 +4,11 @@
     width: 100%;
     position: relative;
     margin-bottom: 10px;
-    border-bottom:3px solid black ;
+    border-bottom: 3px solid black;
 }
 
 .top_part h1 {
     margin-left: 1.2rem;
-}
-
-.bottom {
-    text-align: center;
-    width: 100%;
-    margin-top: 10px;
-    border-top: 3px solid black;
 }
 
 .btn_holder {
@@ -26,7 +19,6 @@
     grid-template-columns: 1fr 1fr;
     height: 50px;
 }
-
 
 .btn_holder .btn {
     margin-top: 4px;
