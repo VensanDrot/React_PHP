@@ -32,7 +32,7 @@
 
 ::-webkit-scrollbar-thumb:hover {
     background: black;
-}
+}   
 
 @media screen and (max-width: 1364px) {
     .cardlist_container {

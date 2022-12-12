@@ -19,7 +19,7 @@ const CardList: FC<IProps> = ({ data, handler }) => {
     <div className="cardlist_container">
       {data.map((e) => {
         return (
-          <div key={e.ID}>
+          <div key={Number(e.ID)}>
             <Card
               ID={e.ID}
               SKU={e.SKU}

@@ -1,10 +1,21 @@
-import React from "react";
+import { type } from "@testing-library/user-event/dist/type";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CardList from "../../components/CardList";
 import "./index.css";
 
+type IResult = {
+  ID: number;
+  SKU: string;
+  Name: string;
+  Price: string;
+  PSAttribute: string;
+  PType: string;
+};
+
 const MainPage = () => {
   let arr: Array<string> = [];
+  const [result, setResult] = useState<IResult[]>([]);
   const data = [
     {
       ID: 123,
@@ -48,6 +59,22 @@ const MainPage = () => {
     }
   };
 
+  useEffect(() => {
+    fetch("http://backend.ua/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: JSON.stringify({ action: 1 }),
+    })
+      .then((Response) => Response.json())
+      .then((Response) => {
+        setResult(Response);
+      });
+  }, []);
+
+  console.log(result);
+
   return (
     <div>
       <div className="top_part">
@@ -61,7 +88,7 @@ const MainPage = () => {
           </button>
         </div>
       </div>
-      <CardList data={data} handler={handler} />
+      <CardList data={result} handler={handler} />
     </div>
   );
 };
