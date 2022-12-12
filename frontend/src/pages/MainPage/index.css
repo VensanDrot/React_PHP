@@ -14,12 +14,35 @@
 .btn_holder {
     width: 20%;
     position: absolute;
-    right: 1.2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    right: 1rem;
+    display: flex;
+    gap: 1.2rem;
     height: 50px;
 }
 
 .btn_holder .btn {
     margin-top: 4px;
+}
+
+@media screen and (max-width: 1350px) {
+    .btn_holder { 
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .btn_holder { 
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .top_part {
+           flex-direction: column;
+    }
+    .btn_holder { 
+        position: relative;
+        width: 70%;
+        justify-content: center;
+    }
 }

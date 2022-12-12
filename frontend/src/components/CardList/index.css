@@ -2,6 +2,7 @@
     display: grid;
     height: 80vh;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 1.2rem;
     place-items: center;
     overflow-y: scroll;
@@ -33,9 +34,16 @@
     background: black;
 }
 
+@media screen and (max-width: 1364px) {
+    .cardlist_container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .cardlist_container {
         grid-template-columns: 1fr 1fr;
+        height: 75vh;
     }
 }
 
