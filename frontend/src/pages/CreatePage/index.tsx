@@ -5,6 +5,7 @@ import InputComponent from "../../components/InputComponent";
 import { InputType } from "zlib";
 
 const CreatePage = () => {
+  const [atribute, setAt] = useState<string | null>("");
   // Error VARIABLES
   const [skuError, setSkuError] = useState("");
   const [nameError, setNameError] = useState("");
@@ -170,20 +171,62 @@ const CreatePage = () => {
       num = specialNumberChecker(width, setErrorWidth, num);
       num = specialNumberChecker(height, setErrorHeight, num);
     }
-    fetch("http://backend.ua/check", {
-      method: "POST",
-      headers: new Headers({
-        "Content-Type": "application/x-www-form-urlencoded",
-      }),
-      body: "SKU=" + sku,
-    })
-      .then((Response) => Response.json())
-      .then((Response) => {
-        if (Response !== null) {
-          setSkuError("SKU can not be repeated");
-          num++;
-        }
-      });
+    if (sku !== "") {
+      fetch("http://backend.ua/check", {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type": "application/x-www-form-urlencoded",
+        }),
+        body: "SKU=" + sku,
+      })
+        .then((Response) => Response.json())
+        .then((Response) => {
+          if (Response !== null) {
+            setSkuError("SKU can not be repeated");
+            num++;
+          }
+        });
+    }
+    if (num === 0) {
+      switch (type) {
+        case "BOOK":
+          console.log("here");
+          setAt(weight);
+          fetch("http://backend.ua/newcard", {
+            method: "POST",
+            headers: new Headers({
+              "Content-Type": "application/x-www-form-urlencoded",
+            }),
+            body: "body=" + JSON.stringify({ sku, name, price, type, atribute }),
+          })
+            .then((Response) => Response.text())
+            .then((Response) => {
+              console.log(Response);
+            });
+          break;
+        /*case "DVD":
+          setAt(size);
+          fetch("http://backend.ua/newcard", {
+            method: "POST",
+            headers: new Headers({
+              "Content-Type": "application/x-www-form-urlencoded",
+            }),
+            body: JSON.stringify({ sku, name, price, type, atribute }),
+          });
+          break;
+        case "Furniture":
+          let result = ` ${length} x ${width} x ${height} `;
+          setAt(result);
+          fetch("http://backend.ua/newcard", {
+            method: "POST",
+            headers: new Headers({
+              "Content-Type": "application/x-www-form-urlencoded",
+            }),
+            body: JSON.stringify({ sku, name, price, type, atribute }),
+          });
+          break;*/
+      }
+    }
   };
 
   return (
@@ -223,9 +266,10 @@ const CreatePage = () => {
             <option value="DEFAULT" disabled>
               Product Type
             </option>
-            <option value="DVD">DVD</option>
             <option value="BOOK">Book</option>
-            <option value="Furniture">Furniture</option>
+            {/*
+            <option value="DVD">DVD</option>
+  <option value="Furniture">Furniture</option>*/}
           </select>
         </div>
         {changeHandler()}

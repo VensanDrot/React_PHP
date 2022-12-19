@@ -1,11 +1,9 @@
 <?
-header("Access-Control-Allow-Origin: *");
 require_once ("./dbcon.php");
-$method = explode("/", $_SERVER['REQUEST_URI']);
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Header: *");
 
-
+$method = explode("/", $_SERVER['REQUEST_URI']);
 switch ($method[1]) {
     case "read":
         $result=array();
@@ -20,9 +18,8 @@ switch ($method[1]) {
         $row = mysqli_query($connect,"DELETE FROM ScandiWeb WHERE ID IN ($delete)");
         echo  $delete;
         break;
-    case "upload": 
-        $delete = $_POST['deleteItems'];
-        $row = mysqli_query($connect,"DELETE FROM ScandiWeb WHERE ID IN ($delete)");
+    case "newcard": 
+        echo json_encode($_POST["body"]);
         break;
     case "check": 
         $SKU = $_POST['SKU'];
@@ -31,7 +28,6 @@ switch ($method[1]) {
         echo json_encode($data);
         break;
     }   
-
 
 
 ?>

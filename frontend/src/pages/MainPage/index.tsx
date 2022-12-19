@@ -23,7 +23,6 @@ const MainPage = () => {
     } else {
       arr.push(event.currentTarget.id);
     }
-    console.log(arr);
   };
 
   const deleteHandler = () => {
