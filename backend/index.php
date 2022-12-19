@@ -21,12 +21,18 @@ switch ($method[1]) {
     case "newcard": 
         $json = $_POST["body"];
         $data = json_decode($json);
-        $sku = $data->sku;
-        $name = $data->name;
-        $price = $data->price;
-        $type = $data->type;
-        $atribute = $data->atribute;
-        echo "Success";
+        $sku = trim(htmlspecialchars(strip_tags($data->sku)));
+        $name = trim(htmlspecialchars(strip_tags($data->name)));
+        $price = trim(htmlspecialchars(strip_tags($data->price)));
+        $type = trim(htmlspecialchars(strip_tags($data->type)));
+        $atribute = trim(htmlspecialchars(strip_tags($data->atribute)));   
+        if (!empty($sku) && !empty($name) && !empty($price) && !empty($type) && !empty($atribute)) {     
+        $insert = mysqli_query($connect,"INSERT INTO `ScandiWeb`(`SKU`, `Name`, `Price`, `PSAttribute`, `PType`) VALUES ('$sku','$name','$price','$atribute','$type')");
+        echo  "Success";
+        }
+        else {
+            echo "Fail";
+        }
         break;
     case "check": 
         $SKU = $_POST['SKU'];

@@ -140,6 +140,27 @@ const CreatePage = () => {
     }
   };
 
+  const setNull = () => {
+    setNameError("");
+    setSkuError("");
+    setPriceError("");
+    setTypeError("");
+    setErrorWidth("");
+    setErrorHeight("");
+    setErrorLength("");
+    setErrorWeight("");
+    setErrorSize("");
+    setName("");
+    setSize("");
+    setSku("");
+    setPrice("");
+    setWidth("");
+    setLength("");
+    setHeight("");
+    setPrice("");
+    setWeight("");
+  };
+
   // save
   const save = () => {
     let num = 0;
@@ -171,7 +192,7 @@ const CreatePage = () => {
       num = specialNumberChecker(width, setErrorWidth, num);
       num = specialNumberChecker(height, setErrorHeight, num);
     }
-    if (sku !== "") {
+    if (sku !== "" || skuError !== "") {
       fetch("http://backend.ua/check", {
         method: "POST",
         headers: new Headers({
@@ -190,7 +211,6 @@ const CreatePage = () => {
     if (num === 0) {
       switch (type) {
         case "BOOK":
-          console.log("here");
           setAt(weight);
           fetch("http://backend.ua/newcard", {
             method: "POST",
@@ -201,19 +221,29 @@ const CreatePage = () => {
           })
             .then((Response) => Response.text())
             .then((Response) => {
-              console.log(Response);
+              if (Response === "Success") {
+                setNull();
+              }
             });
           break;
-        /*case "DVD":
+
+        case "DVD":
           setAt(size);
           fetch("http://backend.ua/newcard", {
             method: "POST",
             headers: new Headers({
               "Content-Type": "application/x-www-form-urlencoded",
             }),
-            body: JSON.stringify({ sku, name, price, type, atribute }),
-          });
+            body: "body=" + JSON.stringify({ sku: sku, name: name, price: price, type: type, atribute: atribute }),
+          })
+            .then((Response) => Response.text())
+            .then((Response) => {
+              if (Response === "Success") {
+                setNull();
+              }
+            });
           break;
+
         case "Furniture":
           let result = ` ${length} x ${width} x ${height} `;
           setAt(result);
@@ -222,9 +252,15 @@ const CreatePage = () => {
             headers: new Headers({
               "Content-Type": "application/x-www-form-urlencoded",
             }),
-            body: JSON.stringify({ sku, name, price, type, atribute }),
-          });
-          break;*/
+            body: "body=" + JSON.stringify({ sku: sku, name: name, price: price, type: type, atribute: atribute }),
+          })
+            .then((Response) => Response.text())
+            .then((Response) => {
+              if (Response === "Success") {
+                setNull();
+              }
+            });
+          break;
       }
     }
   };
@@ -267,9 +303,8 @@ const CreatePage = () => {
               Product Type
             </option>
             <option value="BOOK">Book</option>
-            {/*
             <option value="DVD">DVD</option>
-  <option value="Furniture">Furniture</option>*/}
+            <option value="Furniture">Furniture</option>
           </select>
         </div>
         {changeHandler()}
