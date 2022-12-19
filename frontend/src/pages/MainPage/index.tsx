@@ -16,40 +16,6 @@ type IResult = {
 const MainPage = () => {
   let arr: Array<string> = [];
   const [result, setResult] = useState<IResult[]>([]);
-  const data = [
-    {
-      ID: 123,
-      SKU: "1fr-321-dsa",
-      Name: "Chair",
-      Price: "1234321",
-      PSAttribute: "128mb",
-      PType: "disk",
-    },
-    {
-      ID: 13,
-      SKU: "1fr-321-dsa",
-      Name: "Chip&Dail",
-      Price: "1234321",
-      PSAttribute: "128mb",
-      PType: "disk",
-    },
-    {
-      ID: 1,
-      SKU: "1fr-321-dsa",
-      Name: "Disk",
-      Price: "1234321",
-      PSAttribute: "128mb",
-      PType: "disk",
-    },
-    {
-      ID: 1323,
-      SKU: "1fr-321-dsa",
-      Name: "Chair",
-      Price: "321",
-      PSAttribute: "128mb",
-      PType: "disk",
-    },
-  ];
 
   const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (arr.includes(event.currentTarget.id)) {
@@ -60,7 +26,7 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-    fetch("http://backend.ua/", {
+    fetch("http://backend.ua/read", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
