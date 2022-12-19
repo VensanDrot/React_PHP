@@ -197,7 +197,7 @@ const CreatePage = () => {
             headers: new Headers({
               "Content-Type": "application/x-www-form-urlencoded",
             }),
-            body: "body=" + JSON.stringify({ sku, name, price, type, atribute }),
+            body: "body=" + JSON.stringify({ sku: sku, name: name, price: price, type: type, atribute: atribute }),
           })
             .then((Response) => Response.text())
             .then((Response) => {

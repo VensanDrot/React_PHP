@@ -19,7 +19,14 @@ switch ($method[1]) {
         echo  $delete;
         break;
     case "newcard": 
-        echo json_encode($_POST["body"]);
+        $json = $_POST["body"];
+        $data = json_decode($json);
+        $sku = $data->sku;
+        $name = $data->name;
+        $price = $data->price;
+        $type = $data->type;
+        $atribute = $data->atribute;
+        echo "Success";
         break;
     case "check": 
         $SKU = $_POST['SKU'];
