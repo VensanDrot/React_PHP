@@ -161,6 +161,23 @@ const CreatePage = () => {
     setWeight("");
   };
 
+  // fetch
+  const fetchFunction = (atribute: string | null) => {
+    fetch("http://backend.ua/newcard", {
+      method: "POST",
+      headers: new Headers({
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+      body: "body=" + JSON.stringify({ sku: sku, name: name, price: price, type: type, atribute: atribute }),
+    })
+      .then((Response) => Response.text())
+      .then((Response) => {
+        if (Response === "Success") {
+          setNull();
+        }
+      });
+  };
+
   // save
   const save = () => {
     let num = 0;
@@ -212,56 +229,19 @@ const CreatePage = () => {
       switch (type) {
         case "BOOK":
           setAt(weight);
-          fetch("http://backend.ua/newcard", {
-            method: "POST",
-            headers: new Headers({
-              "Content-Type": "application/x-www-form-urlencoded",
-            }),
-            body: "body=" + JSON.stringify({ sku: sku, name: name, price: price, type: type, atribute: atribute }),
-          })
-            .then((Response) => Response.text())
-            .then((Response) => {
-              if (Response === "Success") {
-                setNull();
-              }
-            });
           break;
 
         case "DVD":
           setAt(size);
-          fetch("http://backend.ua/newcard", {
-            method: "POST",
-            headers: new Headers({
-              "Content-Type": "application/x-www-form-urlencoded",
-            }),
-            body: "body=" + JSON.stringify({ sku: sku, name: name, price: price, type: type, atribute: atribute }),
-          })
-            .then((Response) => Response.text())
-            .then((Response) => {
-              if (Response === "Success") {
-                setNull();
-              }
-            });
+          fetchFunction(atribute);
           break;
 
         case "Furniture":
           let result = ` ${length} x ${width} x ${height} `;
           setAt(result);
-          fetch("http://backend.ua/newcard", {
-            method: "POST",
-            headers: new Headers({
-              "Content-Type": "application/x-www-form-urlencoded",
-            }),
-            body: "body=" + JSON.stringify({ sku: sku, name: name, price: price, type: type, atribute: atribute }),
-          })
-            .then((Response) => Response.text())
-            .then((Response) => {
-              if (Response === "Success") {
-                setNull();
-              }
-            });
           break;
       }
+      fetchFunction(atribute);
     }
   };
 
