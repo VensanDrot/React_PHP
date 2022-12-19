@@ -127,7 +127,7 @@ const CreatePage = () => {
 
   // Number checker
   const specialNumberChecker = (variable: string, errorSetter: React.Dispatch<SetStateAction<string>>, num: number) => {
-    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,<>\/?~]/;
     if (variable.trim().length === 0 || !variable) {
       errorSetter("Please, submit required data");
       return ++num;
@@ -170,6 +170,20 @@ const CreatePage = () => {
       num = specialNumberChecker(width, setErrorWidth, num);
       num = specialNumberChecker(height, setErrorHeight, num);
     }
+    fetch("http://backend.ua/check", {
+      method: "POST",
+      headers: new Headers({
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+      body: "SKU=" + sku,
+    })
+      .then((Response) => Response.json())
+      .then((Response) => {
+        if (Response !== null) {
+          setSkuError("SKU can not be repeated");
+          num++;
+        }
+      });
   };
 
   return (

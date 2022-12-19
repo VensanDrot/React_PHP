@@ -16,14 +16,19 @@ switch ($method[1]) {
          echo json_encode($result);
         break;
     case "delete": 
-        $delete = $_POST['deleteItems'];
-        $row = mysqli_query($connect,"DELETE FROM Cards WHERE ID IN ($delete)");
-        echo "Done",$delete;
+        $delete = $_POST['deleteElements'];
+        $row = mysqli_query($connect,"DELETE FROM ScandiWeb WHERE ID IN ($delete)");
+        echo  $delete;
         break;
     case "upload": 
         $delete = $_POST['deleteItems'];
-        $row = mysqli_query($connect,"DELETE FROM Cards WHERE ID IN ($delete)");
-        echo "Done",$delete;
+        $row = mysqli_query($connect,"DELETE FROM ScandiWeb WHERE ID IN ($delete)");
+        break;
+    case "check": 
+        $SKU = $_POST['SKU'];
+        $row = mysqli_query($connect,"SELECT ID FROM ScandiWeb WHERE SKU = '$SKU'");
+        $data = mysqli_fetch_assoc($row);
+        echo json_encode($data);
         break;
     }   
 

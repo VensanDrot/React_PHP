@@ -23,15 +23,33 @@ const MainPage = () => {
     } else {
       arr.push(event.currentTarget.id);
     }
+    console.log(arr);
+  };
+
+  const deleteHandler = () => {
+    getData();
+    const deleteElements = arr.join(",");
+    fetch("http://backend.ua/delete", {
+      method: "POST",
+      headers: new Headers({
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+      body: "deleteElements=" + deleteElements,
+    })
+      .then((Response) => Response.text())
+      .then((Response) => {
+        getData();
+      });
+    getData();
   };
 
   useEffect(() => {
+    //console.log("here");
     fetch("http://backend.ua/read", {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: JSON.stringify({ action: 1 }),
     })
       .then((Response) => Response.json())
       .then((Response) => {
@@ -39,7 +57,19 @@ const MainPage = () => {
       });
   }, []);
 
-  console.log(result);
+  const getData = () => {
+    fetch("http://backend.ua/read", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+      .then((Response) => Response.json())
+      .then((Response) => {
+        setResult(Response);
+      });
+    return result;
+  };
 
   return (
     <div>
@@ -49,7 +79,7 @@ const MainPage = () => {
           <Link to="/add-product">
             <button className="btn">ADD</button>
           </Link>
-          <button className="btn" id="delete-product-btn">
+          <button onClick={deleteHandler} className="btn" id="delete-product-btn">
             MASS DELETE
           </button>
         </div>
