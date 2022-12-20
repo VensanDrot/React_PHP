@@ -1,10 +1,11 @@
 import React, { SetStateAction, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
 import InputComponent from "../../components/InputComponent";
 import { InputType } from "zlib";
 
 const CreatePage = () => {
+  const navigate = useNavigate();
   const [atribute, setAt] = useState<string | null>("");
   // Error VARIABLES
   const [skuError, setSkuError] = useState("");
@@ -174,6 +175,7 @@ const CreatePage = () => {
       .then((Response) => {
         if (Response === "Success") {
           setNull();
+          navigate("/");
         }
       });
   };

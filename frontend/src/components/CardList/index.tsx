@@ -12,11 +12,18 @@ interface IProps {
     PType: string;
   }[];
   handler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  loading: boolean;
 }
 
-const CardList: FC<IProps> = ({ data, handler }) => {
+const CardList: FC<IProps> = ({ data, handler, loading }) => {
   return (
     <div className="cardlist_container">
+      <div className="image" hidden={loading ? false : true}>
+        <img
+          src="https://cdn.dribbble.com/users/2479507/screenshots/8678351/media/d336cea07ca3557d6bf17376eb7b68af.gif"
+          alt="..."
+        />
+      </div>
       {data.map((e) => {
         return (
           <div key={Number(e.ID)}>

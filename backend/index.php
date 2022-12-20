@@ -11,7 +11,12 @@ switch ($method[1]) {
          while($data = mysqli_fetch_assoc($row)) {
             array_push($result,$data);
          }
+         if(!empty($result)) {
          echo json_encode($result);
+         }
+         else {
+            echo "Fail";
+         }
         break;
     case "delete": 
         $delete = $_POST['deleteElements'];

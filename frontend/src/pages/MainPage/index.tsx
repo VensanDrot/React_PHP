@@ -16,6 +16,7 @@ type IResult = {
 const MainPage = () => {
   let arr: Array<string> = [];
   const [result, setResult] = useState<IResult[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (arr.includes(event.currentTarget.id)) {
@@ -26,7 +27,6 @@ const MainPage = () => {
   };
 
   const deleteHandler = () => {
-    getData();
     const deleteElements = arr.join(",");
     fetch("http://backend.ua/delete", {
       method: "POST",
@@ -43,7 +43,6 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-    //console.log("here");
     fetch("http://backend.ua/read", {
       method: "GET",
       headers: {
@@ -53,6 +52,11 @@ const MainPage = () => {
       .then((Response) => Response.json())
       .then((Response) => {
         setResult(Response);
+        if (result.length !== 0 || Response !== "Fail") {
+          setLoading(false);
+        } else {
+          setLoading(false);
+        }
       });
   }, []);
 
@@ -83,7 +87,7 @@ const MainPage = () => {
           </button>
         </div>
       </div>
-      <CardList data={result} handler={handler} />
+      <CardList loading={loading} data={result} handler={handler} />
     </div>
   );
 };
