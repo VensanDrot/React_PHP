@@ -188,6 +188,7 @@ const CreatePage = () => {
 
   // save
   const save = () => {
+    setSending(true);
     let num = 0;
     // destroy errors
     setNameError("");
@@ -237,23 +238,22 @@ const CreatePage = () => {
       switch (type) {
         case "BOOK":
           setAt(weight);
-          setSending(true);
           fetchFunction(atribute);
           break;
 
         case "DVD":
           setAt(size);
-          setSending(true);
           fetchFunction(atribute);
           break;
 
         case "Furniture":
           let result = ` ${length} x ${width} x ${height} `;
           setAt(result);
-          setSending(true);
           fetchFunction(atribute);
           break;
       }
+    } else {
+      setSending(false);
     }
   };
 

@@ -6,16 +6,6 @@
     place-items: left;
 }
 
-.disabled {
-    opacity: 0.5;
-}
-
-.img_btn {
-    position: relative;
-    height: 100%;
-    opacity: 1;
-}
-
 @media screen and (max-width: 600px) {
     .product_form {
         grid-template-columns: 30% 60%;
