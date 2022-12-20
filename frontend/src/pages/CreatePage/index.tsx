@@ -3,9 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
 import InputComponent from "../../components/InputComponent";
 import { InputType } from "zlib";
+import { send } from "process";
 
 const CreatePage = () => {
   const navigate = useNavigate();
+  //sending
+  const [sending, setSending] = useState(false);
   const [atribute, setAt] = useState<string | null>("");
   // Error VARIABLES
   const [skuError, setSkuError] = useState("");
@@ -164,6 +167,7 @@ const CreatePage = () => {
 
   // fetch
   const fetchFunction = (atribute: string | null) => {
+    setSending(true);
     fetch("http://backend.ua/newcard", {
       method: "POST",
       headers: new Headers({
@@ -252,11 +256,13 @@ const CreatePage = () => {
       <div className="top_part">
         <h1>Product Add</h1>
         <div className="btn_holder">
-          <button className="btn" onClick={save}>
+          <button className={`btn ${sending ? "disabled" : ""}`} onClick={save} disabled={sending ? true : false}>
             Save
           </button>
-          <Link to="/">
-            <button className="btn">Cancel</button>
+          <Link to={sending ? "#" : "/"}>
+            <button className={`btn ${sending ? "disabled" : ""}`} onClick={setNull} disabled={sending ? true : false}>
+              Cancel
+            </button>
           </Link>
         </div>
       </div>
