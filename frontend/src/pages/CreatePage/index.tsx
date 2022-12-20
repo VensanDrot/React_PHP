@@ -9,7 +9,6 @@ const CreatePage = () => {
   const navigate = useNavigate();
   //sending
   const [sending, setSending] = useState(false);
-  const [atribute, setAt] = useState<string | null>("");
   // Error VARIABLES
   const [skuError, setSkuError] = useState("");
   const [nameError, setNameError] = useState("");
@@ -234,22 +233,23 @@ const CreatePage = () => {
           }
         });
     }
+
     if (num === 0) {
+      let at: string;
       switch (type) {
         case "BOOK":
-          setAt(weight);
-          fetchFunction(atribute);
+          at = weight;
+          fetchFunction(at);
           break;
 
         case "DVD":
-          setAt(size);
-          fetchFunction(atribute);
+          at = size;
+          fetchFunction(at);
           break;
 
         case "Furniture":
-          let result = ` ${length} x ${width} x ${height} `;
-          setAt(result);
-          fetchFunction(atribute);
+          at = `${height}x${width}x${length}`;
+          fetchFunction(at);
           break;
       }
     } else {
