@@ -36,7 +36,7 @@ switch ($method[1]) {
         echo  "Success";
         }
         else {
-            echo "Fail";
+            echo $sku . $name . $price.$type.$atribute;
         }
         break;
     case "check": 

@@ -167,7 +167,6 @@ const CreatePage = () => {
 
   // fetch
   const fetchFunction = (atribute: string | null) => {
-    setSending(true);
     fetch("http://backend.ua/newcard", {
       method: "POST",
       headers: new Headers({
@@ -177,9 +176,12 @@ const CreatePage = () => {
     })
       .then((Response) => Response.text())
       .then((Response) => {
+        console.log(Response);
         if (Response === "Success") {
           setNull();
           navigate("/");
+        } else {
+          setSending(false);
         }
       });
   };
@@ -235,19 +237,23 @@ const CreatePage = () => {
       switch (type) {
         case "BOOK":
           setAt(weight);
+          setSending(true);
+          fetchFunction(atribute);
           break;
 
         case "DVD":
           setAt(size);
+          setSending(true);
           fetchFunction(atribute);
           break;
 
         case "Furniture":
           let result = ` ${length} x ${width} x ${height} `;
           setAt(result);
+          setSending(true);
+          fetchFunction(atribute);
           break;
       }
-      fetchFunction(atribute);
     }
   };
 
@@ -257,7 +263,7 @@ const CreatePage = () => {
         <h1>Product Add</h1>
         <div className="btn_holder">
           <button className={`btn ${sending ? "disabled" : ""}`} onClick={save} disabled={sending ? true : false}>
-            Save
+            {sending ? <img src="https://media.tenor.com/5o2p0tH5LFQAAAAj/hug.gif" className="img_btn" /> : "Save"}
           </button>
           <Link to={sending ? "#" : "/"}>
             <button className={`btn ${sending ? "disabled" : ""}`} onClick={setNull} disabled={sending ? true : false}>
