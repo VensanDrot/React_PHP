@@ -143,6 +143,33 @@ const CreatePage = () => {
     }
   };
 
+  //send function
+  const sendThis = (num: number) => {
+    if (num === 0) {
+      let at = "";
+      switch (type) {
+        case "BOOK":
+          at = weight;
+          fetchFunction(at);
+          break;
+
+        case "DVD":
+          at = size;
+          fetchFunction(at);
+          break;
+
+        case "Furniture":
+          at = `${height}x${width}x${length}`;
+          fetchFunction(at);
+          break;
+      }
+    } else {
+      console.log("here");
+      setSending(false);
+    }
+  };
+
+  //error set to empty
   const setNull = () => {
     setNameError("");
     setSkuError("");
@@ -230,30 +257,11 @@ const CreatePage = () => {
           if (Response !== null) {
             setSkuError("SKU can not be repeated");
             num++;
+            setSending(false);
+          } else {
+            sendThis(num);
           }
         });
-    }
-
-    if (num === 0) {
-      let at: string;
-      switch (type) {
-        case "BOOK":
-          at = weight;
-          fetchFunction(at);
-          break;
-
-        case "DVD":
-          at = size;
-          fetchFunction(at);
-          break;
-
-        case "Furniture":
-          at = `${height}x${width}x${length}`;
-          fetchFunction(at);
-          break;
-      }
-    } else {
-      setSending(false);
     }
   };
 
