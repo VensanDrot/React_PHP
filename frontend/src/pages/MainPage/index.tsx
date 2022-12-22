@@ -17,6 +17,7 @@ const MainPage = () => {
   const [arr, setArr] = useState<Array<string>>([]);
   const [deleting, setDeleting] = useState(false);
   const [length, setLength] = useState(true);
+  const [search, setSearch] = useState<string>("");
   const [result, setResult] = useState<IResult[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -47,6 +48,10 @@ const MainPage = () => {
       //arr.push(event.currentTarget.id);
       setArr((prev) => [...prev, index]);
     }
+  };
+
+  const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
   };
 
   useEffect(() => {
@@ -85,13 +90,39 @@ const MainPage = () => {
     return result;
   };
 
+  //search
+  const searchFilter = (result: IResult[]) => {
+    return result.filter((q) => {
+      if (
+        q.SKU.toLowerCase().includes(search.toLowerCase()) ||
+        q.Name.toLowerCase().includes(search.toLowerCase()) ||
+        q.PType.toLowerCase().includes(search.toLowerCase())
+      )
+        return q;
+    });
+  };
+
   return (
     <div>
       <div className="top_part">
         <h1>Product List</h1>
+        <input
+          type="text"
+          onChange={searchHandler}
+          value={search}
+          placeholder="search(Type,Letters)"
+          className="search"
+        />
         <div className="btn_holder">
           <Link to="/add-product">
-            <button className="btn">ADD</button>
+            <button
+              className="btn"
+              onClick={() => {
+                setSearch("");
+              }}
+            >
+              ADD
+            </button>
           </Link>
           <button
             onClick={deleteHandler}
@@ -103,7 +134,7 @@ const MainPage = () => {
           </button>
         </div>
       </div>
-      <CardList loading={loading} data={result} handler={handler} />
+      <CardList loading={loading} data={searchFilter(result)} handler={handler} />
     </div>
   );
 };

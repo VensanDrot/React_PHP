@@ -285,17 +285,25 @@ const CreatePage = () => {
         <label className="error">{skuError}</label>
         <div className="product_form">
           <label>SKU: </label>
-          <input onChange={skuHandler} value={sku} type="text" id="sku" placeholder="SKU" />
+          <input onChange={skuHandler} value={sku} type="text" id="sku" placeholder="SKU" maxLength={254} />
         </div>
         <label className="error">{nameError}</label>
         <div className="product_form">
           <label>Name: </label>
-          <input onChange={nameHandler} value={name} type="text" id="name" placeholder="NAME" />
+          <input onChange={nameHandler} value={name} type="text" id="name" placeholder="NAME" maxLength={254} />
         </div>
         <label className="error">{priceError}</label>
         <div className="product_form">
           <label>Price($): </label>
-          <input onChange={priceHandler} value={price} min={0} type="number" id="price" placeholder="PRICE" />
+          <input
+            onChange={priceHandler}
+            value={price}
+            min={0}
+            type="number"
+            id="price"
+            placeholder="PRICE"
+            maxLength={254}
+          />
         </div>
         <label className="error">{typeError}</label>
         <div className="product_form">

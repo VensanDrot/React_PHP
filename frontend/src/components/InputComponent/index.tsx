@@ -30,6 +30,7 @@ const InputComponent: FC<IProps> = ({ data, variableHandler }) => {
                 onChange={(ev) => variableHandler(ev, e.variableSetter)}
                 type={e.input}
                 id={e.id}
+                maxLength={254}
               />
             </div>
           </div>
