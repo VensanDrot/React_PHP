@@ -27,7 +27,7 @@ const Card: FC<IProps> = ({ ID, SKU, Name, Price, PSAttribute, PType, handler })
       <input id={ID.toString()} onChange={handler} className="delete-checkbox" type="checkbox" />
       <p>{SKU}</p>
       <p>{Name}</p>
-      <p>${Price}</p>
+      <p>{Price} $</p>
       <p>{checker(PType, PSAttribute)}</p>
     </div>
   );
