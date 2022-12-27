@@ -2,10 +2,9 @@ import React, { SetStateAction, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
 import InputComponent from "../../components/InputComponent";
-import { InputType } from "zlib";
-import { send } from "process";
 
 const CreatePage = () => {
+  const gif1 = require("../../img/hug.gif");
   const navigate = useNavigate();
   //sending
   const [sending, setSending] = useState(false);
@@ -164,7 +163,6 @@ const CreatePage = () => {
           break;
       }
     } else {
-      console.log("here");
       setSending(false);
     }
   };
@@ -202,7 +200,6 @@ const CreatePage = () => {
     })
       .then((Response) => Response.text())
       .then((Response) => {
-        console.log(Response);
         if (Response === "Success") {
           setNull();
           navigate("/");
@@ -262,6 +259,8 @@ const CreatePage = () => {
             sendThis(num);
           }
         });
+    } else {
+      setSending(false);
     }
   };
 
@@ -271,7 +270,7 @@ const CreatePage = () => {
         <h1>Product Add</h1>
         <div className="btn_holder">
           <button className={`btn ${sending ? "disabled" : ""}`} onClick={save} disabled={sending ? true : false}>
-            {sending ? <img src="https://media.tenor.com/5o2p0tH5LFQAAAAj/hug.gif" className="img_btn" /> : "Save"}
+            {sending ? <img src={gif1} className="img_btn" /> : "Save"}
           </button>
           <Link to={sending ? "#" : "/"}>
             <button className={`btn ${sending ? "disabled" : ""}`} onClick={setNull} disabled={sending ? true : false}>

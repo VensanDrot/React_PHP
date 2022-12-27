@@ -14,6 +14,7 @@ type IResult = {
 };
 
 const MainPage = () => {
+  const gif = require("../../img/hug.gif");
   const [arr, setArr] = useState<Array<string>>([]);
   const [deleting, setDeleting] = useState(false);
   const [length, setLength] = useState(true);
@@ -61,6 +62,7 @@ const MainPage = () => {
   }, [arr]);
 
   const deleteHandler = () => {
+    setDeleting(true);
     const deleteElements = arr.join(",");
     fetch("https://scandiback.000webhostapp.com/delete", {
       method: "POST",
@@ -71,7 +73,10 @@ const MainPage = () => {
     })
       .then((Response) => Response.text())
       .then((Response) => {
-        getData();
+        if (Response === "Success") {
+          getData();
+          setDeleting(false);
+        }
       });
     getData();
   };
@@ -124,7 +129,7 @@ const MainPage = () => {
             id="delete-product-btn"
             disabled={length ? true : false}
           >
-            MASS DELETE
+            {deleting ? <img src={gif} className="img_btn" /> : "MASS DELETE"}
           </button>
         </div>
       </div>

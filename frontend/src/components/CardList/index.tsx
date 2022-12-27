@@ -16,13 +16,11 @@ interface IProps {
 }
 
 const CardList: FC<IProps> = ({ data, handler, loading }) => {
+  const gif2 = require("../../img/loading.gif");
   return (
     <div className="cardlist_container">
       <div className="image" hidden={loading ? false : true}>
-        <img
-          src="https://cdn.dribbble.com/users/2479507/screenshots/8678351/media/d336cea07ca3557d6bf17376eb7b68af.gif"
-          alt="..."
-        />
+        <img src={gif2} alt="..." />
       </div>
       {data.map((e) => {
         return (
