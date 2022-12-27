@@ -13,9 +13,9 @@ interface IProps {
 
 const checker = (type: string, PSAttribute: string) => {
   if (type === "BOOK") {
-    return <label>Weight: {PSAttribute}KG</label>;
+    return <label>Weight: {PSAttribute} KG</label>;
   } else if (type === "DVD") {
-    return <label>Size: {PSAttribute}MB</label>;
+    return <label>Size: {PSAttribute} MB</label>;
   } else {
     return <label>Dimensions: {PSAttribute}</label>;
   }

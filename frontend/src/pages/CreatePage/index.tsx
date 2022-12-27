@@ -158,7 +158,7 @@ const CreatePage = () => {
           break;
 
         case "Furniture":
-          at = `${height} x ${width} x ${length}`;
+          at = `${height}x${width}x${length}`;
           fetchFunction(at);
           break;
       }
