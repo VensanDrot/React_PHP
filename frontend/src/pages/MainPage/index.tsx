@@ -22,7 +22,7 @@ const MainPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://backend.ua/read", {
+    fetch("https://scandiback.000webhostapp.com/read", {
       method: "GET",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -62,7 +62,7 @@ const MainPage = () => {
 
   const deleteHandler = () => {
     const deleteElements = arr.join(",");
-    fetch("http://backend.ua/delete", {
+    fetch("https://scandiback.000webhostapp.com/delete", {
       method: "POST",
       headers: new Headers({
         "Content-Type": "application/x-www-form-urlencoded",
@@ -77,7 +77,7 @@ const MainPage = () => {
   };
 
   const getData = () => {
-    fetch("http://backend.ua/read", {
+    fetch("https://scandiback.000webhostapp.com/read", {
       method: "GET",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -106,13 +106,7 @@ const MainPage = () => {
     <div>
       <div className="top_part">
         <h1>Product List</h1>
-        <input
-          type="text"
-          onChange={searchHandler}
-          value={search}
-          placeholder="search(Type,Letters)"
-          className="search"
-        />
+        <input type="text" onChange={searchHandler} value={search} placeholder="search(Type,Name)" className="search" />
         <div className="btn_holder">
           <Link to="/add-product">
             <button

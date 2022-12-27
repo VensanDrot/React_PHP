@@ -193,7 +193,7 @@ const CreatePage = () => {
 
   // fetch
   const fetchFunction = (atribute: string | null) => {
-    fetch("http://backend.ua/newcard", {
+    fetch("https://scandiback.000webhostapp.com/newcard", {
       method: "POST",
       headers: new Headers({
         "Content-Type": "application/x-www-form-urlencoded",
@@ -245,7 +245,7 @@ const CreatePage = () => {
       num = specialNumberChecker(height, setErrorHeight, num);
     }
     if (sku !== "" || skuError !== "") {
-      fetch("http://backend.ua/check", {
+      fetch("https://scandiback.000webhostapp.com/check", {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/x-www-form-urlencoded",
