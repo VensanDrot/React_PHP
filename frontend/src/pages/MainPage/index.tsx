@@ -32,9 +32,9 @@ const MainPage = () => {
       .then((Response) => Response.json())
       .then((Response) => {
         setResult(Response);
-        if (result.length !== 0 || Response !== "Fail") {
+        if (result.length !== 0 || Response) {
           setLoading(false);
-        } else if (Response !== "Fail") {
+        } else {
           setLoading(false);
         }
       });
