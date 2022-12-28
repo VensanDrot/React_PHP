@@ -86,9 +86,9 @@ const MainPage = () => {
       body: "deleteElements=" + deleteElements,
     })
       .then((Response) => Response.text())
-      .then((Response) => {
-        setDeleting(false);
+      .then(() => {
         getData();
+        setDeleting(false);
       });
     getData();
   };
