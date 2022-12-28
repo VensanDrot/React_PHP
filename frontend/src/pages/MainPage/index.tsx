@@ -87,10 +87,8 @@ const MainPage = () => {
     })
       .then((Response) => Response.text())
       .then((Response) => {
-        if (Response === "Success") {
-          setDeleting(false);
-          getData();
-        }
+        setDeleting(false);
+        getData();
       });
     getData();
   };
