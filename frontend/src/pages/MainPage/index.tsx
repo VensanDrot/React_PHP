@@ -61,6 +61,20 @@ const MainPage = () => {
     } else setLength(true);
   }, [arr]);
 
+  const getData = () => {
+    fetch("https://scandiback.000webhostapp.com/read", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+      .then((Response) => Response.json())
+      .then((Response) => {
+        setResult(Response);
+      });
+    return result;
+  };
+
   const deleteHandler = () => {
     setDeleting(true);
     const deleteElements = arr.join(",");
@@ -79,20 +93,6 @@ const MainPage = () => {
         }
       });
     getData();
-  };
-
-  const getData = () => {
-    fetch("https://scandiback.000webhostapp.com/read", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    })
-      .then((Response) => Response.json())
-      .then((Response) => {
-        setResult(Response);
-      });
-    return result;
   };
 
   //search
