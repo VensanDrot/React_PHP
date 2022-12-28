@@ -34,7 +34,7 @@ const MainPage = () => {
         setResult(Response);
         if (result.length !== 0 || Response !== "Fail") {
           setLoading(false);
-        } else {
+        } else if (Response !== "Fail") {
           setLoading(false);
         }
       });
@@ -74,8 +74,8 @@ const MainPage = () => {
       .then((Response) => Response.text())
       .then((Response) => {
         if (Response === "Success") {
-          getData();
           setDeleting(false);
+          getData();
         }
       });
     getData();
